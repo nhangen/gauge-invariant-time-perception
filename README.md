@@ -49,7 +49,8 @@ where $m(\tau)$ is an internal memory state evolving in intrinsic time.
 ├── paper.pdf          # Manuscript PDF
 ├── paper.tex          # LaTeX source
 ├── references.bib     # Bibliography file
-├── figures/           # Manuscript figures
+├── plots/             # Manuscript figures
+├── sections/          # LaTeX subsections
 ├── README.md
 └── LICENSE
 ```
