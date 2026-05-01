@@ -1,0 +1,48 @@
+﻿\section{Information-Theoretic Interpretation of Internal State}
+\label{sec:information_theory}
+
+\paragraph{Model Taxonomy.}
+We use two classes, both with the same locked endpoint readout
+\[
+\Delta P = k\,[m(\tau_T)-m(\tau_0)].
+\]
+\begin{itemize}
+\item \textbf{Class I (Invariant leaky accumulator / Paper-1):}
+\[
+\frac{dm}{d\tau}=\beta-\lambda m,\qquad
+\Delta P = k\,[m(\tau_T)-m(\tau_0)].
+\]
+The drive is $\tau$-intrinsic.
+\item \textbf{Class II (Coordinate-surprise observer):}
+\[
+\frac{dm}{d\tau}=\beta I(\tau)-\lambda m,\qquad
+I(\tau)=\left|\frac{d\log(dt/d\tau)}{d\tau}\right|,\qquad
+\Delta P = k\,[m(\tau_T)-m(\tau_0)].
+\]
+Only the drive differs from Class I.
+\end{itemize}
+
+\paragraph{Proposition (Generic coordinate dependence of $I(\tau)$).}
+Let $t\mapsto s(t)$ be a strictly monotone reparameterization of coordinate time. Then $r(\tau)$ transforms as
+\begin{equation}
+r(\tau)\mapsto r_s(\tau)=\frac{ds}{d\tau}=\frac{ds}{dt}\frac{dt}{d\tau}=\frac{ds}{dt}\,r(\tau).
+\label{eq:r_transform}
+\end{equation}
+Hence
+\begin{equation}
+\frac{d\log r_s}{d\tau}
+=
+\frac{d\log r}{d\tau}
++
+\frac{d}{d\tau}\log\!\left(\frac{ds}{dt}\right),
+\label{eq:logr_transform}
+\end{equation}
+so $I(\tau)=|d\log r/d\tau|$ is not invariant in general (except special cases such as affine $s$).
+
+\paragraph{Proof sketch.}
+Equation~\eqref{eq:r_transform} is the chain rule. Taking $\tau$-derivatives of logarithms gives Eq.~\eqref{eq:logr_transform}. The extra additive term is generically nonzero for nonlinear $s(t)$, therefore $I(\tau)$ and any model driven by it are coordinate dependent.
+Exception: if $r(\tau)$ is constant along the trajectory family, then $I(\tau)\equiv 0$ and the coordinate-dependent drive term vanishes.
+
+\paragraph{Consequence for matched-endpoint comparisons.}
+For matched endpoints $(\tau_0,\tau_T)$, Class I remains invariant up to numerical precision in warp tests, while Class II and fixed-$t$ observers (H1/H2) exhibit finite gauge violation.
+Gauge invariance is guaranteed only for $\tau$-intrinsic drives; coordinate-time drives may be invariant on special families ($r$ constant) but are not invariant generically.

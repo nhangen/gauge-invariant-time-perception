@@ -1,0 +1,172 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\graphicspath{{plots/}}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{subcaption}
+
+\newtheorem{definition}{Definition}[section]
+
+\geometry{margin=1in}
+\onehalfspacing
+
+\title{Gauge-Invariant Time Perception and the Minimal Conditions for Interior Sensitivity}
+\author{Nathan Hangen}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Human time perception is often described as accelerating with age, frequently attributed to changes in the ``speed'' or rate of subjective time. In this work, we show that any model of perceived time that is invariant under reparameterization of physical time collapses to an endpoint-only functional unless internal state is introduced. Through controlled numerical experiments, we demonstrate that coordinate-time derivatives (velocity, curvature, jerk) cannot generate invariant interior sensitivity in memoryless functionals. We then separate two classes: an invariant locked class with endpoint readout $\Delta P = k[m(\tau_T)-m(\tau_0)]$, and coordinate-dependent observers used as noninvariant foils. In the invariant class, memory is necessary but not sufficient for matched-endpoint path splitting: with constant $\tau$-intrinsic drive ($g(\tau)=1$), matched-endpoint paths remain collapsed; nonzero splitting requires a nontrivial $\tau$-intrinsic drive that differs across matched-endpoint paths. Comparative gauge tests show decisive separation, with coordinate-dependent observers violating gauge consistency by more than $10^{12}$ relative to the invariant baseline.
+\end{abstract}
+
+\section{Introduction}
+
+A common phenomenological observation is that time appears to pass more quickly as humans age. Informal explanations frequently invoke changes in the ``speed'' of subjective time or its higher-order derivatives. However, such explanations often leave implicit the mathematical structure required for a perception model to depend on the interior of a temporal trajectory rather than solely on its endpoints.
+
+In parallel, physical theories emphasize invariance under reparameterization of time: physical predictions must not depend on arbitrary choices of temporal coordinates \citep{fulop1998reparam,bertschinger2002gauge,lord1971gauge}. This raises a fundamental question:
+
+\begin{quote}
+\emph{Can a time perception model be both reparameterization-invariant and sensitive to how time unfolds internally?}
+\end{quote}
+
+We show that the answer is negative in memoryless models, and conditionally affirmative with internal state only when the drive is nontrivial in $\tau$-space across matched-endpoint paths.
+
+
+\section{Related Work}
+
+Work on reparameterization invariance treats time reparameterization as a gauge symmetry and emphasizes that physical predictions must be invariant to coordinate choice \citep{fulop1998reparam,bertschinger2002gauge,lord1971gauge}. In the time-perception literature, contextual change, attention, and memory are repeatedly identified as primary determinants of perceived duration, rather than raw duration alone \citep{block1978remembered,block2014time}. Reviews also highlight the influence of motivational and affective context on perceived time \citep{gable2022emotion}. These themes align with our focus on invariance and the minimal internal state required for interior sensitivity.
+
+\section{Reparameterization and Experimental Pairings}
+
+\begin{definition}[Gauge equivalence class]
+Let $\tau_1,\tau_2:[0,T]\to\mathbb{R}$ be monotone trajectories. We call $\tau_1$ and $\tau_2$ gauge-equivalent iff
+\[
+\exists\,\phi:[0,T]\to[0,T]\ \text{smooth, strictly increasing, with}\ \phi(0)=0,\ \phi(T)=T
+\]
+such that
+\[
+\tau_2(t)=\tau_1(\phi(t)).
+\]
+A gauge-invariant functional is constant on this equivalence class.
+\end{definition}
+
+\begin{definition}[Matched-Endpoint Pairing (Experimental Constraint)]
+For a reference path $\tau_{\mathrm{ref}}$ and a comparison path $\tau_{\mathrm{variant}}$ on $[0,T]$, a matched-endpoint pairing is
+\[
+\tau_{\mathrm{variant}}(0)=\tau_{\mathrm{ref}}(0),\qquad
+\tau_{\mathrm{variant}}(T)=\tau_{\mathrm{ref}}(T).
+\]
+This is an experimental pairing constraint only, used to define $\Delta P_{\mathrm{path}}$ comparisons and endpoint-collapse tests; it is not a gauge-equivalence criterion.
+\end{definition}
+
+Accordingly, gauge invariance is tested under trajectory reparameterization $\tau\mapsto \tau\circ\phi$, while matched-endpoint experiments compare distinct trajectories that share endpoints but need not be gauge-equivalent.
+
+\section{Endpoint Collapse Without Memory}
+
+\paragraph{Proposition (Endpoint collapse).}
+Let $P[\tau]$ be invariant under all smooth monotone reparameterizations. If $P$ is local in time, depends only on $\tau(t)$ and finitely many derivatives at each $t$, and has no internal state, then $P[\tau]$ is constant on the equivalence class of paths sharing endpoints; i.e., $P[\tau] = F(\tau(t_1)-\tau(t_0))$.
+
+\noindent
+\emph{Sketch.}
+Reparameterization invariance removes dependence on the choice of $t$, so any local dependence on $\dot{\tau}, \ddot{\tau}, \ldots$ must be expressible through reparameterization-invariant integrals. Without internal state variables, such integrals reduce to functions of endpoint differences alone \citep{fulop1998reparam,bertschinger2002gauge}.
+
+
+
+We restrict attention to perception functionals that are local in time, depend on finitely many derivatives of $\tau$, and contain no auxiliary state variables.
+
+We first examine perception models that depend only on $\tau$ and its instantaneous values, without internal state. A representative example is an endpoint-only mapping:
+\[
+P = f(\Delta \tau),
+\]
+where $f$ is concave (e.g., power-law compression).
+
+Through matched-endpoint experiments, we show:
+
+\begin{itemize}
+\item Paths with identical endpoints but radically different interior structure yield identical perceived durations.
+\item This holds under resolution refinement and arbitrary smooth warps of the time parameter.
+\item All dependence on $\dot{\tau}, \ddot{\tau}$, or higher derivatives collapses.
+\end{itemize}
+
+We refer to this phenomenon as \emph{endpoint collapse}. It is not a numerical artifact but a structural consequence of gauge invariance in memoryless systems.
+
+\section{Controlled Baseline and Conditions for Breaking}
+
+To preserve gauge invariance while introducing internal state, we use a single scalar memory variable $m(\tau)$ evolving in $\tau$-space, consistent with contextual-change and memory-based accounts of duration judgments \citep{block1978remembered,block2014time}:
+\[
+\frac{dm}{d\tau} = \beta \, g(\tau),
+\]
+where $\beta$ controls memory strength and $g$ is a bounded signal defined in the experiments (e.g., a surprise/novelty proxy $s(\tau)$).
+
+The locked baseline uses $g(\tau)=1$, corresponding to a pure accumulator. This baseline is invariant but does not by itself produce matched-endpoint path splitting.
+
+Perceived time is then defined by the locked endpoint readout:
+\[
+\Delta P = k\,[m(\tau_T)-m(\tau_0)].
+\]
+
+This construction satisfies:
+\begin{itemize}
+\item Gauge invariance under time reparameterization.
+\item Zero interior sensitivity when $\beta = 0$.
+\item Matched-endpoint collapse for the constant-drive baseline $g(\tau)=1$, even when $\beta>0$.
+\end{itemize}
+
+Matched-endpoint path divergence in the invariant class requires a nontrivial $\tau$-intrinsic drive (e.g., curvature/event signal) that differs between paths.
+In the curvature experiments, the code-level proxy is
+\[
+\kappa_\tau(\tau)=\frac{\left\|\frac{d^2 x}{d\tau^2}\right\|}{\left\|\frac{dx}{d\tau}\right\|+\varepsilon},
+\qquad
+\Delta\kappa=\int_{\tau_0}^{\tau_T}\kappa_\tau^{\mathrm{(variant)}}\,d\tau-\int_{\tau_0}^{\tau_T}\kappa_\tau^{\mathrm{(ref)}}\,d\tau,
+\]
+with $\varepsilon>0$ used only for numerical stability near small $\|dx/d\tau\|$. This is the specific ``curvature'' quantity used in the implementation and in the $\Delta P$--$\Delta\kappa$ plots.
+
+\section{Experimental Results}
+
+\input{results_tau_curv.tex}
+\newline
+
+\input{sections/information_theory}
+
+\input{sections/leaky_phase_analysis}
+
+\input{sections/model_class_comparison}
+
+The experimental figures and tables show three core findings. First, memoryless gauge-invariant models exhibit endpoint collapse: matched-endpoint trajectories yield identical perceived duration, and this holds under resolution refinement and strong reparameterizations. Second, the locked invariant memory baseline with constant drive remains endpoint-collapsed for matched-endpoint comparisons. Third, invariant interior sensitivity is recovered only when the drive is nontrivial in $\tau$-space (curvature/event-like signal), while coordinate-dependent observers fail gauge consistency by orders of magnitude.
+
+Resolution scaling and warp stress tests confirm the invariant baseline and the class separation. The controlled-break plots show endpoint collapse in memoryless and constant-drive invariant baselines, while nontrivial $\tau$-intrinsic drives produce the matched-endpoint split without violating invariance. Curvature-extension plots quantify this nontrivial-drive regime.
+
+\section{Discussion}
+
+Our findings imply that changes in perceived time with age cannot arise from coordinate-time derivative effects alone. Within the invariant framework, memory is necessary but not sufficient for matched-endpoint splitting: a nontrivial $\tau$-intrinsic drive is additionally required. The model comparison (Section~\ref{sec:model_class_comparison}) demonstrates that invariant and coordinate-dependent classes are decisively separated, confirming gauge invariance as a structural requirement rather than a convenience.
+
+The framework naturally opens the door to entropy-based interpretations, surprise accumulation, and links to Weber--Fechner-like laws without sacrificing invariance principles.
+
+\section{Conclusion}
+
+We have shown that:
+\begin{itemize}
+\item Reparameterization invariance enforces endpoint collapse in memoryless models.
+\item Time derivatives alone are insufficient to alter perception.
+\item Internal memory is necessary but not sufficient for matched-endpoint interior sensitivity in the invariant class.
+\item Matched-endpoint splitting requires a nontrivial $\tau$-intrinsic drive while preserving the locked endpoint readout.
+\end{itemize}
+
+This establishes a principled taxonomy for modeling subjective time that is mathematically consistent with gauge constraints and matched-endpoint tests.
+
+\bigskip
+\newpage
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+
+\end{document}

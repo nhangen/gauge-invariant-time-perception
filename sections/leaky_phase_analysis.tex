@@ -1,0 +1,32 @@
+\subsection{Leaky-Phase Analysis Under the Locked Invariant Class}
+\label{sec:leaky_phase_analysis}
+
+We analyze the Paper-1 invariant class
+\[
+\frac{dm}{d\tau}=\beta-\lambda m,\qquad
+\Delta P = k\,[m(\tau_T)-m(\tau_0)].
+\]
+The decay parameter $\lambda$ controls the relaxation rate of $m(\tau)$ but cannot create matched-endpoint splitting under constant $\tau$-intrinsic drive; it only attenuates splitting already induced by nontrivial $\tau$-intrinsic inputs.
+For fixed endpoints $(\tau_0,\tau_T)$ and fixed initial condition, $\Delta P$ is endpoint-determined; matched-endpoint path pairs therefore do not split under this class.
+
+\paragraph{Numerical phase behavior (\texttt{paper\_final\_20260302}).}
+From \texttt{tables/leaky\_memory\_grid.csv} (rows with $\beta=1$, $\mathrm{dt\_hint}=0.5$), terminal memory decreases monotonically with $\lambda$:
+\[
+m_{\text{end}}(10^{-4})=4256.584,\;
+m_{\text{end}}(10^{-3})=996.1074,\;
+m_{\text{end}}(10^{-2})=100,\;
+m_{\text{end}}(10^{-1})=10,\;
+m_{\text{end}}(1)=1.
+\]
+The matched-path endpoint difference remains numerically zero across the tested grid:
+\[
+\Delta m_{\text{end}}=0,\qquad \Delta P_{\text{path}}=0.
+\]
+
+\paragraph{Interpretation.}
+The leaky parameter $\lambda$ controls memory amplitude and horizon, not gauge violation. In this locked invariant class:
+\begin{itemize}
+\item $\lambda$ modulates endpoint state magnitude $m(\tau_T)$.
+\item matched-endpoint path comparisons remain collapsed ($\Delta P_{\text{path}}=0$).
+\item gauge separation must therefore be established against coordinate-dependent observers (Section~\ref{sec:model_class_comparison}).
+\end{itemize}

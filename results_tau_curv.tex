@@ -1,0 +1,80 @@
+% Compact composite layout for Section 6
+% Requires: \usepackage{subcaption}, \usepackage{float}, \usepackage{booktabs}
+
+\begin{figure}[t]
+\centering
+\begin{subfigure}[t]{0.47\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{resolution_scaling_deltaP.png}
+  \caption{Resolution scaling of matched-endpoint $\Delta P$.}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.47\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{deltaP_vs_deltaM_matched_scatter.png}
+  \caption{Matched-endpoint $\Delta P$ vs $\Delta m$.}
+\end{subfigure}
+
+\vspace{0.35em}
+
+\begin{subfigure}[t]{0.47\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{deltaP_vs_deltaCurv_scatter.png}
+  \caption{$\Delta P$ vs $\Delta\kappa$ at $\eta_{\mathrm{plot}}$.}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.47\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{deltaP_over_eta_vs_deltaCurv_collapse.png}
+  \caption{Collapse $\Delta P/\eta$ vs $\Delta\kappa$ across $\eta>0$.}
+\end{subfigure}
+\caption{Core diagnostics: scaling, endpoint-state relation, and curvature-response collapse.}
+\label{fig:core_composite}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\begin{subfigure}[t]{0.31\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{warp_stress_error_block_compress.png}
+  \caption{block\_compress}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.31\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{warp_stress_error_memory_scalar.png}
+  \caption{invariant leaky}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.31\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{warp_stress_error_tau_curvature_accum.png}
+  \caption{tau\_curvature\_accum}
+\end{subfigure}
+\caption{Warp-stress comparison across representative model classes.}
+\label{fig:gauge_composite}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.56\linewidth]{tau_curv_residuals_vs_eta.png}
+\caption{Residual magnitude versus $\eta$ for the curvature-driven fit summary.}
+\label{fig:residual_eta}
+\end{figure}
+
+The $\tau$-curvature model predicts $\Delta P$ with maximum absolute residual $1.24e\text{-}14$ and maximum relative residual $5.66e\text{-}12$ at $\eta=1.0$ (max over $\Delta t$ resolutions). The fit quality is effectively exact, with $R^2(\Delta P\sim\Delta\kappa)\ge 1.000000$ for $\eta>0$.
+
+\begin{table}[t]
+\centering
+\caption{Residual summary used in the curvature-fit panel.}
+\begin{tabular}{lccccc}
+\toprule
+$\eta$ & $r(\Delta\kappa,\Delta P)$ & $r(\Delta m,\Delta P)$ & $r(\Delta m,\Delta P\mid\Delta\kappa)$ & max $|\varepsilon|$ & max $|\varepsilon|/|\Delta P|$ \\
+\midrule
+0.1 & 1.000000e+00 & 4.030289e-01 & -5.793572e-12 & 1.05e-14 & 3.96e-11 \\
+0.3 & 1.000000e+00 & 4.030289e-01 & -1.751549e-12 & 1.10e-14 & 2.90e-11 \\
+1 & 1.000000e+00 & 4.030289e-01 & -7.679594e-13 & 1.24e-14 & 5.66e-12 \\
+3 & 1.000000e+00 & 4.030289e-01 & -6.387632e-13 & 1.07e-14 & 1.89e-12 \\
+\bottomrule
+\end{tabular}
+\end{table}
